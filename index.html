@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>[Visualisation]Compte rendu Ramboaniaina Jonathan</title>
+    <meta charset="UTF-8">
+        <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        </style>
+
+</head>
+
+
+
+<body>
+<h1>Comment lancer l'application ?</h1>
+
+<p>Pour lancer l'application, lancer dans le dossier "application.$OS"( ou $OS est le système exploitation compatible) « sketch_201117a ».</p>
+<img  alt="ExempleLance" src="img/ExempleLancer.png">
+<h1>Utilisation de l'application</h1>
+<img  alt="DescriptionExemple1" src="img/Exemple1.png">
+<h2>Touche de clavier interactive disponible</h2>
+<table><tr><th>Touche de clavier</th><th>Description</th></tr>
+<tr><td>→</td><td>Permet d’incrémenter la barre de la palette vers les villes avec un rang d'altitude le plus bas</td></tr>
+<tr><td>←</td><td>Permet de décrémenter la barre de la palette vers les villes avec un rang d'altitude le plus haut</td></tr>
+<tr><td>↓</td><td>Incrémente le nombre de populations(soit minimal , soit maximal selon la couleur du carré a coté du texte) </td></tr>
+<tr><td>↑</td><td>Décrémente le nombre de populations(soit minimal , soit maximal selon la couleur du carré a coté du texte)</td></tr>
+</table>
+<p>Maintenir les touches permet d'accélérer l'incrémentation(la décrémentation) d'une valeur</p>
+
+<h2>Interaction possible</h2>
+<table>
+<tr><th>Image</th><th>Noms</th><th>Description</th> </tr>
+<tr><td><img  alt="Surface Jauge" src="img/Surface_Jauge.png"></td><td>Jauge de filtrage de densité(surface) des villes</td><td>Permet de modifier la valeur du filtrage des villes par densités(ou surface) en cliquant sur la jauge :Les villes qui remplissent la condition du filtrage  seront affichés dans la carte. La barre représente la condition de la valeur choisie et la jauge (rouge si une ville est choisi actuellement ou vert sinon) représente la valeur de la densité de la ville choisie. De haut en bas de la barre,la valeur maximale jusqu'à une valeur minimale d'une densité de la ville </td></tr>
+<tr><td><img  alt="Palette Ville Altitude" src="img/Palette_Ville_Altitude.png"></td><td>Palette classé par altitude des villes</td><td>En ciblant sur les cases blanches,une ville est sélectionnée et la case change de couleur(rouge si haut classé,magenta si moyennement classé,bleu sinon). Seulement 10 villes sont affichées dans la palette et pour changer d'affichage ,on clique sur la jauge a coté pour déterminer l'intervalle de rang (une barre allant au plus bas affichera le plus haut rang des villes et inversement) </td></tr>
+<tr><td><img  alt="vert" src="img/carree_verte.png"><img  alt="rouge" src="img/carree_rouge.png"></td><td>Boite de box de condition</td><td> Échange la couleur de la boite (vert si elle est en rouge et inversement) en cas de clique.Si la couleur est verte ,la condition passe à "supérieur",sinon ,elle passe à "inférieur" </td></tr>
+<tr><td><img  alt="triangle" src="img/ListeTriangleVille.png"></td><td>Ville interagissante</td><td>Plus la ville a une grande altitude ,plus elle est cyan .Plus la ville a une très forte densité, plus le triangle est grand.Si la ville est ciblée ,toutes les villes autre que celle ciblée et celle cliqué précédemment deviennent transparents et la cible devient plus ou moins magenta en fonction de l'altitude .Si la cible est cliqué,elle devient complètement rouge et des informations seront affichés .Tous les autres triangles restent transparents a l'exception de la cible cliqué a moins d'avoir cliqué encore une fois sur la même cible . </td></tr>
+<tr><td><img  alt="zoom" src="img/Zoom.png"></td><td>Zoom de la carte</td><td> Zoom ou de-zoom la carte en l'interagissant:si la barre part à gauche ,la carte zoom ,sinon ,elle de-zoome . De gauche à droite ,la valeur est comprise entre 15 et 0</td></tr>
+<tr><td><img  alt="pad" src="img/Pad.png"></td><td>Pad interagissante de la carte</td><td>Lorsque le pad est interagi :il faut bouger les coordonnées de la carte en fonction de la direction entre la souris et le pad </td></tr>
+</table>
+<p>Note:si une jauge est ciblée sans être cliqué ,elle aura un contour jaune (comme le zoom).si elle est cliqué ,elle aura un contour rouge</p>
+
+
+
+<h2>Raison de la visualisation</h2>
+<table>
+<tr><th>Noms</th><th>Caractéristique</th><th>Description</th></tr>
+<tr><td>Glisseur(Jauge de filtrage de densité des villes,Jauge de la palette classé par altitude des villes et Zoom de la carte)   </td><td>Rectangle avec un fond noir suivi d'une jauge rouge ou vert avec une barre gris</td><td>Un jauge rouge signifie une action causé par un événement d'affichage de donnée ,Cela permet d'attirer l'attention de l'utilisateur...Si la jauge est verte ,c'est naturel dont ça n'a pas de changement donc on considère que la jauge est au repos. </td></tr>
+<tr><td>Boite de box de condition</td><td>Carre soit rouge ,soit gris</td><td>Inspiré du coche verte(valide) et coche rouge(invalide),si c'est valide donc coché ,on regarde uniquement ceux qui ont atteint la valeur choisie et si ce n'est pas valide, on regarde uniquement ceux qui sont en dessous de la valeur choisie(Texte indiquant soit inférieur ou supérieur) </td> </tr>
+<tr><td>Ville interagissante</td><td>Triangle de couleur variant de blanc à bleu clair</td><td>
+Le triangle symbolise à la construction d'un bâtiment . Une ville a plusieurs caractéristiques(ville urbaine ,rurale...) et elle symbolise souvent par la stabilité . Plus la densité de la ville est grande ,plus le triangle est grand représentant une taille de le surface de la ville.<br>
+le triangle peut être plus bleu clair s'il y a une altitude plus élevé(représentant très souvent le froid ici) que blanc(très souvent répandu avec une altitude de départ voire pas très élevé)...Si un triangle est interagi,il devient rouge (signifiant qu'il a été interagi par l'utilisateur qui demande de l'information mais que les informations de la ville précédente sera écrasée par celle choisie ,d’où la couleur orange du nom de la ville lors d'un clique sur le triangle) </td> </tr>
+<tr><td>Palette classé par altitude des villes</td><td>Liste de rectangle avec soit un fond noir ou blanc avec un contour de rouge a bleu </td><td>Si une ville est très bien classé ,elle est très forte (d’où le cadre rouge:symbole de la puissance) ,sinon ,elle est faible (dépressif comme le cadre bleu).Pour savoir si une ville est visible sur la carte ,on distingue la font noir auquel les villes ne sont pas visibles(comme dans l'obscurité ) et la font blanc auquel elles le sont(comme la lumière qui permet facilement de la voir)</td></tr>
+</table>
+<footer>
+  <h3>Auteur: Ramboaniaina Jonathan</h3>
+  <h3>Référence</h3>
+  <p><a href="https://www.creanico.fr/prestations/les-couleurs-et-les-emotions">https://www.creanico.fr/prestations/les-couleurs-et-les-emotions</a></p>
+  <p><a href="https://www.developpez.net/forums/d3690/general-developpement/algorithme-mathematiques/algorithmes-structures-donnees/point-l-interieur-d-triangle">https://www.developpez.net/forums/d3690/general-developpement/algorithme-mathematiques/algorithmes-structures-donnees/point-l-interieur-d-triangle</a></p>
+  <p><a href="https://evolutiongraphique.com/la-signification-cachee-des-couleurs-en-communication-visuelle">https://evolutiongraphique.com/la-signification-cachee-des-couleurs-en-communication-visuelle/</a></p>
+  <p><a href="https://www.lafabriquedunet.fr/creation-site-vitrine/articles/palettes-couleurs-outils">https://www.lafabriquedunet.fr/creation-site-vitrine/articles/palettes-couleurs-outils/</a></p>
+  <p><a href="https://fr.wikipedia.org/wiki/Valeur_(arts_visuels)">https://fr.wikipedia.org/wiki/Valeur_(arts_visuels)</a></p>
+  <p><a href="https://graphiste.com/blog/symbolique-forme-logo-triangle">ttps://graphiste.com/blog/symbolique-forme-logo-triangle</a></p>
+  <p><a href="https://www.france-montagnes.com/webzine/nature-et-decouverte/tout-comprendre-climat-temperature-et-meteo-la-montagne">https://www.france-montagnes.com/webzine/nature-et-decouverte/tout-comprendre-climat-temperature-et-meteo-la-montagne</a></p>
+  <p><a href="https://fr.wikipedia.org/wiki/Coche_(typographie)">https://fr.wikipedia.org/wiki/Coche_(typographie)</a></p>
+</footer> 
+</body>
+</html>
